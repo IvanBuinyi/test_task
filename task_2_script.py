@@ -49,7 +49,7 @@ df.to_sql('employees', engine, if_exists='append', index=False)
 # print(df_employees)
 
 # creating departments table with unique department_id and name
-# !!!!!! in the task not mentioned department_name so it is strange to take name looks like from employee !!!!!!
+# !!!!!! in the task not mentioned department_name, so it is strange to take name looks like from employee !!!!!!
 unique_departments = df[['department_id', 'name']].drop_duplicates()
 
 # load to departments

@@ -1,9 +1,8 @@
-#
 with
 file as (select id, name, date_of_birth, salary, department_id
-            from <file> --means data exported from the file
+            from <file> --means data exported from the file or even file just imported to DB
          ),
-result as (--depending on what really mean column 'name' in the file, is it employee or department name, because there is not mentioned that file separate name columns for employee and departments
+result as (--!!!! depending on what really mean column 'name' in the file, is it employee or department name, because there is not mentioned that file has separate name columns for employee and departments!!!!
             SELECT emp_id, full_name, dob, salary, department_id
             --SELECT emp_id, dept_name, dob, salary, department_id
             FROM employees e

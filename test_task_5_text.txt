@@ -1,0 +1,23 @@
+Question #1: Describe how you would perform data quality checks to ensure that the migrated data is accurate and complete.
+Answer: First of all during the data migration we should follow approach that data should be processed 1 to 1 from the source to the target, but can have some cleaning and transformation rules applied if required.
+Before validation the source to the target approach we need to perform the source data profiling to evaluate source data quality and whether some additional cleaning and transformations can be suggested or just keep in mind for validations.
+Other than that to define how I will validate data migration it depends on the source of data whether it is files, DB tables, API or real time streaming(e.g. Kafka).
+
+General checks between the source and target:
+- Validate completeness by counts.
+- Verify schemas (attributes and datatypes).
+- Validate accuracy by:
+    - mapping of processed values by some samples.
+    - totals, min and max values, distinct values.
+- Compare tables (e.g. key attributes or entire table) by hash or files with source and result data extract from target.
+
+Also, we should consider initial and increment data loading to prove completeness without data loss on incremental runs.
+
+
+Question #2: Outline a strategy for performance testing of the ETL process.
+Include considerations for handling large volumes of data and ensuring the ETL process completes within acceptable time frames.
+Answer: Performance testing strategy can be build base on the SLAs.
+We need to define SLA based on the data volume, for example base on the number of attributes and rows processed.
+Other than that we need to validate whether performance allow to process initial (historical) data run and whether incremental/daily runs are met to required time to complete data pipeline in time.
+
+Additionally even SQL scripts can be reviewed for optimization.
